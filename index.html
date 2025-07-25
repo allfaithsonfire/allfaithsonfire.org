@@ -1,40 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <title>Book of the Returning Light</title>
-    <link rel="stylesheet" href="htdocs/style.css">
-    <script defer src="htdocs/script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Faiths On Fire</title>
+    <link rel="stylesheet" href="style/default.css" id="theme-link">
+    <script src="style/theme.js" defer></script>
 </head>
-<body>
-<header>
-    <h1>Book of the Returning Light</h1>
-</header>
-<div class="container">
-    <nav class="sidebar">
-        <h3>Books</h3>
-        <div>
-            <h4 class="book-toggle">Book of the Returning Light</h4>
-            <div class="chapters" style="display: block;">
-<a href="htdocs/1_Book_of_the_Returning_Light/1_The_Roar_of_Thunder/The_Roar_of_Thunder.html" target="reader">1. The Roar of Thunder</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/2_The_Pyramid_Reclaimed/The_Pyramid_Reclaimed.html" target="reader">2. The Pyramid Reclaimed</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/3_The_Word_Today_Do_Good/The_Word_Today_Do_Good.html" target="reader">3. The Word Today Do Good</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/4_A_Ministry_of_Mending/A_Ministry_of_Mending.html" target="reader">4. A Ministry of Mending</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/5_The_Breach_and_the_Thread/The_Breach_and_the_Thread.html" target="reader">5. The Breach and the Thread</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/6_The_Sermon_of_Eden_Remembered/The_Sermon_of_Eden_Remembered.html" target="reader">6. The Sermon of Eden Remembered</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/7_The_Keeper_of_the_Stories/The_Keeper_of_the_Stories.html" target="reader">7. The Keeper of the Stories</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/8_The_Great_Unlearning/The_Great_Unlearning.html" target="reader">8. The Great Unlearning</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/9_The_Corruption_of_Good_Intentions/The_Corruption_of_Good_Intentions.html" target="reader">9. The Corruption of Good Intentions</a>
-<a href="htdocs/1_Book_of_the_Returning_Light/10_The_Pilgrimage_of_the_Prophet_with_No_Temple/The_Pilgrimage_of_the_Prophet_with_No_Temple.html" target="reader">10. The Pilgrimage of the Prophet with No Temple</a>
 
-            </div>
-        </div>
-    </nav>
-    <main class="main">
-        <iframe name="reader" src="htdocs/1_Book_of_the_Returning_Light/1_The_Roar_of_Thunder/The_Roar_of_Thunder.html"></iframe>
-    </main>
-</div>
-<footer>
-    <p>All Faiths On Fire Ministry &copy; 2025</p>
-</footer>
+<body class="theme-dark">
+    <div id="container">
+        <nav id="sidebar">
+            <h2>All Faiths On Fire</h2>
+            <ul class="book-list">
+                <li>
+                    <button class="book-toggle">The Returning Light</button>
+                    <ul class="chapter-list">
+                        <li><a href="#" data-path="bible/1_The_Returning_Light/1_The_Pyramid_Reclaimed/chapter.html">The Pyramid Reclaimed</a></li>
+                        <li><a href="#" data-path="bible/1_The_Returning_Light/2_The_Pilgrimage_of_the_Prophet/chapter.html">The Pilgrimage</a></li>
+                        <li><a href="#" data-path="bible/1_The_Returning_Light/3_When_Stories_Saved_Me/chapter.html">When Stories Saved Me</a></li>
+                        <li><a href="#" data-path="bible/1_The_Returning_Light/4_The_Army_That_Rises/chapter.html">The Army That Rises</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="book-toggle">Songs of the Walkers</button>
+                    <ul class="chapter-list">
+                        <li><a href="#" data-path="bible/2_Songs_Of_The_Walkers/1_Stranger_With_Cash/chapter.html">The Pyramid Reclaimed</a></li>
+                        <li><a href="#" data-path="bible/2_Songs_Of_The_Walkers/2_The_Good_Cop/chapter.html">The Pilgrimage</a></li>
+                        <li><a href="#" data-path="bible/2_Songs_Of_The_Walkers/3_The_Wayfarer_Veteran/chapter.html">When Stories Saved Me</a></li>
+                        <li><a href="#" data-path="bible/2_Songs_Of_The_Walkers/4_The_House_of_Safety/chapter.html">The Army That Rises</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <main id="content">
+            <div id="reading-pane">Select a chapter to begin reading.</div>
+            <footer id="footer">
+                <p>Support the mission: 
+                    <a href="https://www.gofundme.com/manage/a-veteran-standing-up-for-those-still-serving-veterans" target="_blank">GoFundMe</a>
+                </p>
+                <p>&copy; All Faiths On Fire – A Ministry of Light and Action</p>
+            </footer>
+        </main>
+    </div>
+
+    <button id="toggle-theme">🌓 Theme</button>
+
+    <script>
+        document.querySelectorAll("a[data-path]").forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const path = link.getAttribute("data-path");
+
+                fetch(path)
+                    .then(res => {
+                        if (!res.ok) throw new Error("Chapter not found");
+                        return res.text();
+                    })
+                    .then(html => {
+                        document.getElementById("reading-pane").innerHTML = html;
+                        window.scrollTo({ top: 0 });
+                    })
+                    .catch(() => {
+                        document.getElementById("reading-pane").innerHTML = `<p>Chapter not found. 😢</p>`;
+                    });
+            });
+        });
+    </script>
 </body>
+
 </html>
