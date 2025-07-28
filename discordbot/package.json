@@ -1,0 +1,19 @@
+{
+  "name": "allfaiths-discord-bot",
+  "version": "1.0.1",
+  "type": "module",
+  "main": "bot.js",
+  "scripts": {
+    "dev": "nodemon bot.js",
+    "start": "node bot.js",
+    "prod": "pm2 start bot.js --name allfaithsdiscordbot"
+  },
+  "dependencies": {
+    "allfaithsonfire": "file:..",
+    "discord.js": "^14.14.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
