@@ -39,9 +39,11 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
 
+
 app.get('/chapter/:filename', (req, res) => {
   const chapter = db.prepare(`
-    SELECT c.id, c.title AS chapter_title, b.title AS book_title
+    SELECT c.id, c.title AS chapter_title, b.title AS book_title,
+           c.created_at, c.moral, c.consequence, c.redemption
     FROM chapters c
     JOIN books b ON c.book_id = b.id
     WHERE c.filename = ?

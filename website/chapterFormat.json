@@ -1,0 +1,19 @@
+{
+	"title": "The Tower Shivered",
+	"filename": "the_tower_shivered",
+	"book_id": 7,
+	"verses": [...],
+	"tags": ["obsession", "power", "humility", "vision"],
+	"links": [
+	  {
+		"url": "https://en.wikipedia.org/wiki/The_Dark_Tower_(series)",
+		"title": "The Dark Tower",
+		"description": "Stephen King’s mythos of obsession and multiverse."
+	  }
+	],
+	"moral": "We must not chase power at the cost of our soul.",
+	"consequence": "Obsession blinds us to truth and destroys what we love.",
+	"redemption": "Climb the tower with care — or build a better one together.",
+	"revision_note": "Initial insertion."
+  }
+  
