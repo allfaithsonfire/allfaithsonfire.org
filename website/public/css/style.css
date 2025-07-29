@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  font-size: 18px;
+  background: var(--bg, #fff);
+  color: var(--text, #111);
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+}
+
+.toc, .right {
+  flex: 0 0 240px;
+  padding: 1rem;
+  background: #f2f2f2;
+  overflow-y: auto;
+}
+
+.toc {
+  border-right: 1px solid #ccc;
+}
+.right {
+  border-left: 1px solid #ccc;
+}
+
+.inner-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.inner-content h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.inner-content.two-col {
+  column-count: 2;
+  column-gap: 3rem;
+}
+
+.chapter-meta {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  font-style: italic;
+}
+
+.chapter-link {
+  display: block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: #444;
+}
+
+.book-toggle {
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.chapter-list.open {
+  display: block;
+}
+.chapter-list {
+  display: none;
+}
+
+#theme-toggle button {
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#theme-menu button {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .toc, .right {
+    flex: none;
+    width: 100%;
+  }
+  .inner-content.two-col {
+    column-count: 1;
+  }
+}

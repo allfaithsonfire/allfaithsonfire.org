@@ -1,0 +1,14 @@
+<html>
+<head><title><%= chapter.title %></title></head>
+<body>
+<h1><%= chapter.book_title %>: <%= chapter.title %></h1>
+<p><strong>Moral:</strong> <%= chapter.moral || '—' %></p>
+<p><strong>Consequence:</strong> <%= chapter.consequence || '—' %></p>
+<p><strong>Redemption:</strong> <%= chapter.redemption || '—' %></p>
+<ul>
+<% verses.forEach(v => { %>
+  <li><strong><%= v.verse_number %></strong>: <%= v.text %></li>
+<% }) %>
+</ul>
+</body>
+</html>

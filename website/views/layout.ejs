@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Faiths On Fire</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/themes.css">
+  <script defer src="/js/scripts.js"></script>
+</head>
+<body class="light">
+  <header>
+    <h1>All Faiths On Fire - A Ministry of Good Works</h1>
+    <p class="quote">Even in ashes, faith finds breath.</p>
+  </header>
+  <main>
+    <aside id="toc">
+      <% include partials/toc.ejs %>
+    </aside>
+    <section class="reading">
+      <%- body %>
+    </section>
+    <aside id="rightnav">
+      <% include partials/rightnav.ejs %>
+    </aside>
+  </main>
+  <% include partials/theme_menu.ejs %>
+  <footer>© All Faiths On Fire – 2025</footer>
+</body>
+</html>

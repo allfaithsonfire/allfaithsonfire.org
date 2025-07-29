@@ -1,0 +1,52 @@
+
+:root {
+  --bg: #ffffff;
+  --fg: #222222;
+  --header-bg: #f8f8f8;
+  --footer-bg: #f8f8f8;
+  --nav-bg: #eeeeee;
+  --content-bg: #ffffff;
+  --accent: #0066cc;
+  --link: #0066cc;
+  --tag-bg: #ddd;
+  --verse-highlight: #fffae0;
+}
+
+[data-theme="dark"] {
+  --bg: #111;
+  --fg: #eee;
+  --header-bg: #1a1a1a;
+  --footer-bg: #1a1a1a;
+  --nav-bg: #181818;
+  --content-bg: #121212;
+  --accent: #3399ff;
+  --link: #66baff;
+  --tag-bg: #333;
+  --verse-highlight: #2a2a2a;
+}
+
+[data-theme="warm"] {
+  --bg: #fef9f0;
+  --fg: #3b2f2f;
+  --header-bg: #f5e5d8;
+  --footer-bg: #f5e5d8;
+  --nav-bg: #f7eee5;
+  --content-bg: #fffaf3;
+  --accent: #d2691e;
+  --link: #c1440e;
+  --tag-bg: #e8d1b8;
+  --verse-highlight: #fcf2e6;
+}
+
+[data-theme="cool"] {
+  --bg: #f0f9fa;
+  --fg: #1e2d33;
+  --header-bg: #d8edf0;
+  --footer-bg: #d8edf0;
+  --nav-bg: #e4f1f3;
+  --content-bg: #f9fdfd;
+  --accent: #117788;
+  --link: #117788;
+  --tag-bg: #cce6e9;
+  --verse-highlight: #e2f6f7;
+}
