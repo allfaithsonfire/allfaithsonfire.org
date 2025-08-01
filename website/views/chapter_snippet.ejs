@@ -5,16 +5,3 @@
   <p><strong><%= v.verse_number %></strong> <%= v.text %></p>
 <% }) %>
 <hr />
-<% if (chapter.moral || chapter.consequence || chapter.redemption) { %>
-  <div class="chapter-meta">
-    <% if (chapter.moral) { %>
-      <p><strong>Moral:</strong> <%= chapter.moral %></p>
-    <% } %>
-    <% if (chapter.consequence) { %>
-      <p><strong>Consequence of Ignoring:</strong> <%= chapter.consequence %></p>
-    <% } %>
-    <% if (chapter.redemption) { %>
-      <p><strong>Redemption Path:</strong> <%= chapter.redemption %></p>
-    <% } %>
-  </div>
-<% } %>

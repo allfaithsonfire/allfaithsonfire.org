@@ -12,14 +12,9 @@ const db = new Database(path.join(__dirname, '../../allfaithsonfire.db'));
 
 export function getChapter(req, res) {
   const stmt = db.prepare(`
-    SELECT c.id, c.title, c.filename, c.created_at, 
-           b.title AS book_title,
-           m.text AS moral, r.text AS redemption, co.text AS consequence
+    SELECT c.id, c.title, c.created_at, b.title AS book_title
     FROM chapters c
     JOIN books b ON b.id = c.book_id
-    LEFT JOIN morals m ON m.id = c.moral_id
-    LEFT JOIN redemptions r ON r.id = c.redemption_id
-    LEFT JOIN consequences co ON co.id = c.consequence_id
     WHERE c.id = ?
   `);
   const chapter = stmt.get(req.params.id);
